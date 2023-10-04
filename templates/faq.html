@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Website Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/faqst.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-image: url('{% static "/images/hacker-8018467_1280.png" %}');
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+        a{
+            color: #f5f5f5;
+        }
+
+        main {
+            padding: 20px;
+        }
+        
+        .content-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            color: #f5f5f5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .content {
+            background-color: rgba(5, 5, 5, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            color: #f5f5f5;
+            margin: 20px;
+        }
+
+        .content h2 {
+            font-size: 20px;
+        }
+
+        .content p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .faq-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .faq-list li {
+            margin-top: 20px;
+        }
+
+        .faq-list h3 {
+            font-size: 18px;
+        }
+
+        .faq-list p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* Responsive styles for tablets */
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            .content h2 {
+                font-size: 18px;
+            }
+
+            .content p {
+                font-size: 14px;
+            }
+            .content-container {
+                margin: 20px auto;
+                width: 70%; /* Adjust width as needed */
+            }
+
+            .faq-list h3 {
+                font-size: 16px;
+            }
+
+            .faq-list p {
+                font-size: 14px;
+            }
+        }
+
+        /* Responsive styles for laptops */
+        @media screen and (min-width: 481px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            .content-container {
+                margin: 20px auto;
+                width: 70%; /* Adjust width as needed */
+            }
+
+            .content h2 {
+                font-size: 18px;
+            }
+
+            .content p {
+                font-size: 14px;
+                margin-top: 10px;
+            }
+
+            .faq-list h3 {
+                font-size: 16px;
+            }
+
+            .faq-list p {
+                font-size: 14px;
+            }
+        }
+
+        /* Responsive styles for larger screens (desktops) */
+        @media screen and (min-width: 1025px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .content h2 {
+                font-size: 22px;
+            }
+
+            .content p {
+                font-size: 18px;
+            }
+            .content-container {
+                margin: 20px auto;
+                width: 70%; /* Adjust width as needed */
+            }
+
+            .faq-list h3 {
+                font-size: 20px;
+            }
+
+            .faq-list p {
+                font-size: 18px;
+            }
+        }
+
+        /* Responsive styles for mobile phones */
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 18px;
+            }
+
+            .content {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .content h2 {
+                font-size: 16px;
+            }
+            .content-container {
+                margin: 20px auto;
+                width: 70%; /* Adjust width as needed */
+            }
+            .content p {
+                font-size: 14px;
+                margin-top: 5px;
+            }
+
+            .faq-list h3 {
+                font-size: 16px;
+            }
+
+            .faq-list p {
+                font-size: 14px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Phishing Website Detection</h1>
+    </header>
+    <main>
+        <div class="content-container">
+            <h3>Welcome to our Phishing Website Detection Service</h3>
+            <p>
+                Our service helps you identify potentially malicious websites and protect yourself from online threats.
+                Use our tool to check if a website is safe to visit.
+            </p><br>
+        </div>
+        <section class="content">
+
+            <br>
+            <h2>Frequently Asked Questions</h2>
+            <ul class="faq-list">
+                <li>
+                    <h3>What is phishing?</h3>
+                    <p>Phishing is a cybercrime where attackers create fake websites to steal sensitive information such as passwords and credit card details.</p>
+                </li>
+                <li>
+                    <h3>How does your tool work?</h3>
+                    <p>Our tool analyzes website features and patterns to determine if it matches known phishing characteristics. It then provides a risk assessment.</p>
+                </li>
+                <li>
+                    <h3>Is the tool 100% accurate?</h3>
+                    <p>No tool can guarantee 100% accuracy, but our tool uses advanced algorithms to make accurate predictions based on various factors.</p>
+                </li>
+                <li>
+                    <h3>Is this service free?</h3>
+                    <p>Yes, our basic phishing detection service is available for free to help users stay safe online.</p>
+                </li>
+
+                <li>
+                    <h3><a href="{% url 'home' %}#contact">More</a></h3>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Phishing Detection Service. All rights reserved.</p>
+    </footer>
+</body>
+</html>

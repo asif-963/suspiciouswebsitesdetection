@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styled Button Redirect Example</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-image: url('{% static "/images/hacker-8018467_1280.png" %}');
+      }
+      .container {
+        text-align: center;
+      }
+
+      /* Common button styles */
+      .redirect-button {
+        display: inline-block;
+        font-size: 25px;
+        background-color: #0f0f0f7b;
+        color: #fff;
+        cursor: pointer;
+        margin: 20px;
+        border-radius: 60px;
+        text-decoration: none;
+        padding: 20px 40px;
+      }
+
+      .redirect-button:hover {
+        background-color: #dfdfdf68;
+      }
+      .notification-container {
+    position: fixed;
+    top: 10%;
+    left: 60%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 12cm;
+    max-width: 100%;
+}
+
+.notification-container {
+    position: fixed;
+    top: 10%;
+    left: 65%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 30cm;
+    max-width: 100%;
+}
+
+.notification {
+    /* background-color: rgba(51, 51, 51, 0.7);
+    color: #fff; */
+    padding: 40px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    max-width: 15cm;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.notification-success {
+    background-color: #060706;
+    color: greenyellow;
+}
+
+.notification-error {
+    background-color: #020202;
+    color: red;
+}
+
+      /* Styles for mobile phones */
+      @media screen and (max-width: 480px) {
+        .redirect-button {
+          font-size: 18px;
+          padding: 15px 30px;
+        }
+      }
+
+      /* Styles for tablets */
+      @media screen and (min-width: 481px) and (max-width: 768px) {
+        .redirect-button {
+          font-size: 22px;
+          padding: 20px 40px;
+        }
+      }
+
+      /* Styles for laptops */
+      @media screen and (min-width: 769px) and (max-width: 1024px) {
+        .redirect-button {
+          font-size: 25px;
+          padding: 25px 50px;
+        }
+      }
+
+      /* Styles for larger screens (desktops) */
+      @media screen and (min-width: 1025px) {
+        .redirect-button {
+          font-size: 28px;
+          padding: 30px 60px;
+        }
+      }
+    </style>
+</head>
+<body>
+  <div class="notification-container">
+    {% for message in messages %}
+        {% if message.tags == 'success' or message.tags == 'error' %}
+        <div class="notification {% if message.tags == 'success' %}notification-success{% else %}notification-error{% endif %}">
+            {{ message }}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+    <div class="container">
+        <p>Click the button below to be redirected:</p>
+
+        <a href="{% url 'admin_login' %}" class="redirect-button">Admin</a>
+        <a href="{% url 'login' %}" class="redirect-button">User</a>
+    </div>
+</body>
+</html>
