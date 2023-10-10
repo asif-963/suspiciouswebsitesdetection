@@ -130,9 +130,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_FROM = 'adjango612@gmail.com'
-EMAIL_HOST_USER = 'adjango612@gmail.com'
-EMAIL_HOST_PASSWORD = 'tpqvtrbnuxaviiyu'
+EMAIL_FROM = 'admn9630369@gmail.com'
+EMAIL_HOST_USER = 'admn9630369@gmail.com'
+EMAIL_HOST_PASSWORD = 'dwbnlwpmnunyviru'
 
 
 # Default primary key field type

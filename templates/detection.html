@@ -9,6 +9,7 @@
     <title>Phishing Detection</title>
     <style>
         body {
+            font-family: 'Cascadia Code', monospace; 
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -16,6 +17,7 @@
         }
 
         .container {
+            font-family: 'Cascadia Code', monospace; 
             text-align: center;
             margin: 20px;
             padding: 20px;
@@ -164,13 +166,9 @@
             <li><a href="{% url 'home' %}#contact">Contact us</a></li>
         </ul>
     </nav>
-    <!-- {% if messages %}
-    <div class="notification notification-success">
-        {{ messages.0 }}
-    </div>
-    {% endif %} -->
+
     <div class="container">
-        <h1>Phishing Detection</h1>
+        <h1>Phishing Websites Detection</h1>
         <form method="post">
             {% csrf_token %}
             <label for="url">Enter URL:</label>

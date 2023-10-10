@@ -1,9 +1,8 @@
-
 from django.contrib import admin
 from django.urls import path
 from .import views
 from webpage.views import list_suspicious_websites 
-# from .views import PhishingDetectionView
+
 
 
 

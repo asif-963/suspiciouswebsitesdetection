@@ -2,24 +2,21 @@ from django.shortcuts import render, redirect,HttpResponse
 from django.db import IntegrityError
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth import get_user_model
 import pandas as pd
 import numpy as np
 import random
 
 
 # Machine Learning Packages
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
+from sklearn import metrics
+from .models import SuspiciousWebsite
 
 from django.views import View
-# from .models import blacklist
 from .models import Message
 from django.http import HttpResponse
-from django.contrib import messages
-
-
 
 
 from django.contrib import messages
@@ -27,6 +24,10 @@ from .models import *
 from .helpers import send_forget_password_mail
 from .models import Profile
 import uuid
+
+from datetime import timedelta
+from django.utils import timezone
+
 # Create your views here.
 def index(request):
     if request.method == 'POST':
@@ -103,22 +104,6 @@ def faq(request):
 def admin_user(request):
     # messages.success(request, 'Click the button below to be redirected....')
     return render(request,'admin_user.html')
-
-
-    
-
-from django.shortcuts import render, redirect,HttpResponse
-import pandas as pd
-import os
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.model_selection import train_test_split
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from .models import SuspiciousWebsite
-
-
-
-
 
 
 def check_phishing(request):
@@ -640,7 +625,7 @@ def check_phishing(request):
             checked_website = url
 
         except Exception as e:
-            result = f"An error occurred: {str(e)}"
+            result = "This website has already been verified as suspicious. Please review our blacklist for further information."
     # messages.success(request, ' Check Your Website Safe or Not...')
     return render(request, 'detection.html', {'result': result,'checked_website':checked_website})
 
@@ -659,15 +644,6 @@ def admin(request):
 
 
 
-
-from datetime import timedelta
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.utils import timezone
-from .models import Profile
-from django.contrib.auth import get_user_model
-from django.http import HttpResponseBadRequest
-
 User = get_user_model()
 
 def change_pass(request, token):
@@ -676,17 +652,17 @@ def change_pass(request, token):
 
         if not profile_obj:
             messages.error(request, 'Invalid link or profile not found')
-            return redirect('forget')  # Redirect to a password reset request page
+            return redirect('login')  # Redirect to a password reset request page
 
         # Check if the token has already been used
         if profile_obj.password_reset_link_used:
             messages.error(request, 'This link has already been used. Try again later.')
-            return redirect('forget')  # Redirect to a password reset request page
+            return redirect('login')  # Redirect to a password reset request page
 
         # Check if the token has been created
         if profile_obj.forget_password_token_created_at is None:
             messages.error(request, 'Token creation time is missing. Please request a new one.')
-            return redirect('forget')  # Redirect to a password reset request page
+            return redirect('login')  # Redirect to a password reset request page
 
         # Calculate the expiration time
         token_creation_time = profile_obj.forget_password_token_created_at
@@ -740,7 +716,7 @@ def change_pass(request, token):
     return render(request, 'change_pass.html')
 
 
-from django.utils import timezone
+
 
 def forget(request):
     try:
