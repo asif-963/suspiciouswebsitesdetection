@@ -9,7 +9,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url('{% static "/images/hacker-8018467_1280.png" %}');
+    background-image: url("/static/images/hacker-8018467_1280.png");
   }
   
   .container {
