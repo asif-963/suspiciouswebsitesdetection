@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2!$jzvk7xs_uj*h3l3pi)e!1#d3elle$07e2+##26(-k@$31d3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['phishing-website-detection-bz6d.onrender.com']
@@ -128,6 +128,10 @@ STATICFILES_DIRS=[
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+
+SITE_DOMAIN = 'phishing-website-detection-bz6d.onrender.com'  # or 'xxx.xxx.xxx.xxx' for IP address
+BASE_URL = f'https://{SITE_DOMAIN}'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
