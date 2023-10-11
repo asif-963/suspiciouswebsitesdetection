@@ -128,6 +128,7 @@ STATICFILES_DIRS=[
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 SITE_DOMAIN = 'phishing-website-detection-bz6d.onrender.com'  # or 'xxx.xxx.xxx.xxx' for IP address
