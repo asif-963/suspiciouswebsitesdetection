@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/detection.css">
-    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="{% static '/css/detection.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
     <title>Phishing Detection</title>
     <style>
         body {
@@ -13,7 +13,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-            background-image: url('/static/images/hacker-8018467_1280.png');
+            background-image: url('{% static "/images/hacker-8018467_1280.png" %}');
         }
 
         .container {
@@ -27,6 +27,13 @@
 
         h1 {
             color: white;
+        }
+
+        h3{
+            color: aliceblue;
+        }
+        a{
+            color: aliceblue;
         }
 
         form {
@@ -162,7 +169,7 @@
         <ul class="nav-list">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'blacklist' %}">Blacklist</a></li>
+            <li><a href="{% url 'blacklist' %}">Phishing Websites Lists</a></li>
             <li><a href="{% url 'home' %}#contact">Contact us</a></li>
         </ul>
     </nav>
@@ -181,6 +188,9 @@
         {% if result %}
         <p>Result: {{ result }}</p>
         {% endif %}
+        <br><br><br>
+        <h3>Worried about SQL injection on websites? <a href="{% url 'sqli_detection' %}" >Click here to investigate.</a></h3>
     </div>
+    
 </body>
 </html>
