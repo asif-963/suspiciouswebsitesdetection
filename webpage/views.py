@@ -1146,7 +1146,7 @@ def check_sqlinjection(request):
                 result = "We guess it is a safe website"
             else:
                 SqlinjectionWebsites.objects.create(url=url)
-                result = "Alert! Sql Injection Detected !"
+                result = "Alert! Sql injected website detected"
 
             checked_website = url
 
