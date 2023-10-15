@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
         'HOST': 'phishing-website-detection-bz6d.onrender.com'
-        'PORT':'443'
+        # 'PORT':'443'
     }
 }
 
