@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-2!$jzvk7xs_uj*h3l3pi)e!1#d3elle$07e2+##26(-k@$31d3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['phishing-website-detection-bz6d.onrender.com']
 
 
 # Application definition
@@ -44,7 +45,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+<<<<<<< HEAD
     # 'whitenoise.middleware.WhiteNoiseMiddleware'
+=======
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+>>>>>>> 814844cc31095bc78de4281c30c89a21fa770c68
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,6 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'HOST': 'phishing-website-detection-bz6d.onrender.com'
+        # 'PORT':'443'
     }
 }
 
@@ -120,16 +127,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+<<<<<<< HEAD
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
+=======
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+SITE_DOMAIN = 'phishing-website-detection-bz6d.onrender.com'  # or 'xxx.xxx.xxx.xxx' for IP address
+BASE_URL = f'https://{SITE_DOMAIN}'
+>>>>>>> 814844cc31095bc78de4281c30c89a21fa770c68
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

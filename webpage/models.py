@@ -35,4 +35,8 @@ class SqlinjectionWebsites(models.Model):
     def __str__(self):
 
         index = SqlinjectionWebsites.objects.filter(created_at__lte=self.created_at).count()
+<<<<<<< HEAD
         return f"{index} - {self.url}"
+=======
+        return f"{index} - {self.url}"
+>>>>>>> 814844cc31095bc78de4281c30c89a21fa770c68
