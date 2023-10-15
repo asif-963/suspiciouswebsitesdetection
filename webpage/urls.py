@@ -18,10 +18,6 @@ urlpatterns = [
     path('admin_user',views.admin_user,name='admin_user'),
     path('detection',views.check_phishing,name='detection'),
     path('sqli_detection',views.check_sqlinjection,name='sqli_detection'),
-<<<<<<< HEAD
-
-=======
->>>>>>> 814844cc31095bc78de4281c30c89a21fa770c68
     path('admin_login',views.adminlogin,name='admin_login'),
     path('admin/', views.admin,name='admin'),
     path('blacklist',views.list_suspicious_websites,name='blacklist'),
