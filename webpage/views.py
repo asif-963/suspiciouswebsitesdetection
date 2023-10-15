@@ -112,7 +112,7 @@ def check_phishing(request):
     if request.method=='POST':
         url=request.POST['url']
 
-        data = pd.read_csv("D:/Phishing Detector/phishing.csv")
+        data = pd.read_csv("phishing.csv")
         X = data.drop(["class","Index"],axis =1)
         y = data["class"]
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
