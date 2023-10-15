@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static '/css/detection.css' %}">
     <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
-    <title>Phishing Detection</title>
+    <title>Sql Injction Detection</title>
     <style>
         body {
             font-family: 'Cascadia Code', monospace; 
@@ -28,9 +28,8 @@
         h1 {
             color: white;
         }
-
         h3{
-            color: aliceblue;
+            color:aliceblue;
         }
         a{
             color: aliceblue;
@@ -169,17 +168,17 @@
         <ul class="nav-list">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'blacklist' %}">Phishing Websites Lists</a></li>
+            <li><a href="{% url 'sqli_list' %}">Sql Injected Websites List</a></li>
             <li><a href="{% url 'home' %}#contact">Contact us</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <h1>Phishing Websites Detection</h1>
+        <h1>Sql Injected Websites Detection</h1>
         <form method="post">
             {% csrf_token %}
             <label for="url">Enter URL:</label>
-            <input type="url" placeholder="https://www.example.com" id="url" name="url" class="text-box" required>
+            <input type="" placeholder="https://www.example.com" id="url" name="url" class="text-box" required>
             <button type="submit" class="submit-button">Detect</button>
         </form>
         {% if checked_website %}
@@ -189,8 +188,9 @@
         <p>Result: {{ result }}</p>
         {% endif %}
         <br><br><br>
-        <h3>Worried about SQL injection on websites? <a href="{% url 'sqli_detection' %}" >Click here to investigate.</a></h3>
+        <h3>Worried about the security of websites? Let's investigate their phishing status  <a href="{% url 'detection' %}">Click Here.</a></h3>
     </div>
     
+
 </body>
 </html>

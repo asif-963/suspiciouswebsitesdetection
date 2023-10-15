@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Websites Lists</title>
+    <title>List Of Sql Injected Websites</title>
     <style>
         body {
             font-family: 'Cascadia Code', monospace;
@@ -82,9 +82,9 @@
     </style>
 </head>
 <body>
-    <h1>List Of Phishing Websites</h1>
+    <h1>List Of Sql Injected Websites</h1>
     <ul>
-        {% for website in websites %}
+        {% for website in sqlwebsites %}
         <li>
             <span> {{ forloop.counter }} - {{ website.url }}</span><br>
             <span style="font-size: 12px;">   added on  {{ website.created_at }}</span>
